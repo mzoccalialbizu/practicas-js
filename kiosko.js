@@ -18,22 +18,17 @@ class Kiosko {
             if (a >= precioTotal) {
                 // en caso de que pueda, dar vuelto, 
                 if (cliente.mochilaLlena()) {
-
                     cliente.mochila.espacio.push({ nombre: producto, cantidad: cantidad })
                     a = a - precioTotal
-
                     console.log('gracias por su compra')
                 }
                 else { console.log('toma una bolsita') }
             }
             else { console.log('no te alcanza pobre') }
-
         }
         else {
             cconsole.log('no tenemnos ' + producto)
         }
-
-
     }
 }
 class Cliente {
@@ -59,23 +54,22 @@ carlos = new Cliente('carlos', 1000, {
     espacio: [],
     limite: 5
 })
-kiosko = new Kiosko({
-    'alfajores': 50,
-    'caramelos': 1,
-    'agua': 80
-},
+kiosko = new Kiosko(
+    {
+        'alfajores': 50,
+        'caramelos': 1,
+        'agua': 80
+    },
     {
         'alfajores': 10,
         'caramelos': 0,
         'agua': 100
-    })
-// agregar cantidad de alfajores a comprar
+    }
+)
 
-for (let i = 0; i < 7 ; i++) {
+
+for (let i = 0; i < 7; i++) {
     kiosko.vender('alfajores', carlos, 5)
-
-
 }
-
 
 console.log(carlos.mochila.espacio[0].nombre + ' ' + carlos.mochila.espacio[0].cantidad)
